@@ -1,5 +1,5 @@
 [package]
-name = "validator-set"
+name = "substrate-validator-set"
 version = "3.0.0"
 authors = ["gautamdhameja"]
 edition = "2018"
