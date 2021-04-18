@@ -63,7 +63,7 @@ impl pallet_session::Config for Runtime {
 }
 ```
 
-* Add both `session` and `validatorset` pallets in `construct_runtime` macro. **Make sure to add them before `Aura` and `Grandpa` pallets.**
+* Add both `session` and `validatorset` pallets in `construct_runtime` macro. **Make sure to add them before `Aura` and `Grandpa` pallets and after `Balances`.**
 
 ```rust
 construct_runtime!(
@@ -73,6 +73,7 @@ construct_runtime!(
 		UncheckedExtrinsic = UncheckedExtrinsic
 	{
 		...
+    Balances: pallet_balances::{Module, Call, Storage, Config<T>, Event<T>},
 		Session: pallet_session::{Module, Call, Storage, Event, Config<T>},
 		ValidatorSet: validatorset::{Module, Call, Storage, Event<T>, Config<T>},
 		Aura: aura::{Module, Config<T>, Inherent(Timestamp)},
